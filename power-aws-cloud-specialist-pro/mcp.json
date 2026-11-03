@@ -1,0 +1,68 @@
+{
+  "mcpServers": {
+    "aws-documentation": {
+      "command": "/opt/homebrew/bin/uvx",
+      "args": ["awslabs.aws-documentation-mcp-server@latest"],
+      "env": {
+        "FASTMCP_LOG_LEVEL": "ERROR",
+        "PATH": "/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+      },
+      "disabled": false,
+      "autoApprove": [
+        "search_documentation",
+        "read_documentation",
+        "read_sections",
+        "search_table",
+        "recommend"
+      ],
+      "disabledTools": []
+    },
+
+    "aws-pricing": {
+      "command": "/opt/homebrew/bin/uvx",
+      "args": ["awslabs.aws-pricing-mcp-server@latest"],
+      "env": {
+        "FASTMCP_LOG_LEVEL": "ERROR",
+        "PATH": "/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin",
+        "AWS_PROFILE": "default",
+        "AWS_REGION": "us-east-1"
+      },
+      "disabled": false,
+      "autoApprove": [],
+      "disabledTools": []
+    },
+
+    "terraform-registry": {
+      "command": "/Users/chuda/.docker/bin/docker",
+      "args": ["run", "-i", "--rm", "hashicorp/terraform-mcp-server:latest"],
+      "env": {
+        "PATH": "/Users/chuda/.docker/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin"
+      },
+      "disabled": false,
+      "autoApprove": [
+        "search_modules",
+        "search_providers",
+        "get_module_details",
+        "get_provider_details",
+        "get_latest_module_version",
+        "get_latest_provider_version"
+      ],
+      "disabledTools": []
+    },
+
+    "aws-pricing-armellini": {
+      "command": "/opt/homebrew/bin/uvx",
+      "args": ["awslabs.aws-pricing-mcp-server@latest"],
+      "env": {
+        "FASTMCP_LOG_LEVEL": "ERROR",
+        "PATH": "/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin",
+        "AWS_PROFILE": "armellini",
+        "AWS_REGION": "us-east-1"
+      },
+      "disabled": true,
+      "autoApprove": [],
+      "disabledTools": [],
+      "_note": "Per-profile pricing server. Set disabled:false to activate. Duplicate this block for any other AWS CLI profile, changing the server key and AWS_PROFILE."
+    }
+  }
+}

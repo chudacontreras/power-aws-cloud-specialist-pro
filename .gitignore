@@ -1,0 +1,34 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# Generated diagrams (from the diagrams DSL workflow)
+generated-diagrams/
+*.png
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+crash.log
+
+# Credentials / secrets — never commit these
+.env
+.env.*
+*.pem
+*.key
+aws-credentials*
+credentials
